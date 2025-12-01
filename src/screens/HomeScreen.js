@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, ScrollView, StyleSheet, SafeAreaView } from 'react-native';
+import { View, Text, ScrollView, StyleSheet, SafeAreaView, TouchableOpacity } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import PlanetCard from '../components/PlanetCard';
 import { planets } from '../data/planets';
@@ -12,6 +12,17 @@ const HomeScreen = ({ navigation }) => {
         <Text style={styles.headerEmoji}>🚀</Text>
         <Text style={styles.title}>Solar System</Text>
         <Text style={styles.subtitle}>Tap a planet to learn more!</Text>
+
+        {/* Interactive Mode Button */}
+        <TouchableOpacity
+          style={styles.interactiveButton}
+          onPress={() => navigation.navigate('InteractiveMode')}
+          activeOpacity={0.8}
+        >
+          <Text style={styles.interactiveButtonEmoji}>🪐</Text>
+          <Text style={styles.interactiveButtonText}>Interactive Mode</Text>
+          <Text style={styles.interactiveButtonSubtext}>For little explorers!</Text>
+        </TouchableOpacity>
       </View>
       <ScrollView
         style={styles.scrollView}
@@ -58,6 +69,33 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: '#a0a0a0',
     marginTop: 8,
+  },
+  interactiveButton: {
+    marginTop: 20,
+    backgroundColor: '#4A90D9',
+    paddingHorizontal: 30,
+    paddingVertical: 16,
+    borderRadius: 25,
+    alignItems: 'center',
+    shadowColor: '#4A90D9',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.4,
+    shadowRadius: 8,
+    elevation: 6,
+  },
+  interactiveButtonEmoji: {
+    fontSize: 32,
+    marginBottom: 4,
+  },
+  interactiveButtonText: {
+    color: '#fff',
+    fontSize: 20,
+    fontWeight: 'bold',
+  },
+  interactiveButtonSubtext: {
+    color: 'rgba(255,255,255,0.8)',
+    fontSize: 14,
+    marginTop: 2,
   },
   scrollView: {
     flex: 1,

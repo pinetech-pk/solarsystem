@@ -4,6 +4,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import HomeScreen from './src/screens/HomeScreen';
 import PlanetDetailScreen from './src/screens/PlanetDetailScreen';
+import InteractiveModeScreen from './src/screens/InteractiveModeScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -26,6 +27,11 @@ export default function App() {
           name="PlanetDetail"
           component={PlanetDetailScreen}
           options={{ title: 'Planet Details' }}
+        />
+        <Stack.Screen
+          name="InteractiveMode"
+          component={InteractiveModeScreen}
+          options={{ title: 'Interactive Mode' }}
         />
       </Stack.Navigator>
     </NavigationContainer>
