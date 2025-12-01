@@ -84,6 +84,11 @@ const Planet = ({ planet, onTap, isSelected }) => {
     outputRange: ['0deg', '360deg'],
   });
 
+  const counterRotation = rotationAnim.interpolate({
+    inputRange: [0, 1],
+    outputRange: ['0deg', '-360deg'],
+  });
+
   const bounce = bounceAnim.interpolate({
     inputRange: [0, 1],
     outputRange: [0, 5],
@@ -158,11 +163,7 @@ const Planet = ({ planet, onTap, isSelected }) => {
               top: -planet.size / 2,
               left: planet.orbitRadius - planet.size / 2,
               transform: [
-                { rotate: rotation.interpolate({
-                    inputRange: [0, 360],
-                    outputRange: ['360deg', '0deg'],
-                  })
-                },
+                { rotate: counterRotation },
                 { scale: scaleAnim },
                 { translateY: bounce },
               ],
